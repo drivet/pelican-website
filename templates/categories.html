@@ -1,6 +1,10 @@
 {% extends "blog.html" %}
 {% block title %}Categories - {{ SITENAME }} - {{ PARENT_SITENAME }}{% endblock %}
 
+{% block meta %}
+<meta name="robots" content="noindex,follow" />
+{% endblock %}
+
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
