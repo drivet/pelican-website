@@ -6,10 +6,6 @@
     <meta name="robots" content="noindex,follow" />
 {% endblock %}
 
-{% block canonical_rel %}
-<link rel="canonical" href="{{ SITEURL }}/{{ category.url }}">
-{% endblock %}
-
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
@@ -21,6 +17,18 @@
 {% endblock %}
 {% block article_list_title %}
 <header class="article-list-header">
-    Category archives for: {{ category }}
+    <div>
+        Category archives for: {{ category }}
+    </div>
+    <div class="category-rsslinks"> 
+        {% if CATEGORY_FEED_RSS %}
+        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS % category }}">
+            <span class="fa fa-rss-square"></span>RSS</a>
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM %}
+        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM % category }}"> 
+            <span class="fa fa-rss-square"></span>Atom</a>
+        {% endif %}
+    </div>
 </header>
 {% endblock %}

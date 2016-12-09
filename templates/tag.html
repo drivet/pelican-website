@@ -6,10 +6,6 @@
     <meta name="robots" content="noindex,follow" />
 {% endblock %}
 
-{% block canonical_rel %}
-<link rel="canonical" href="{{ SITEURL }}/{{ tag.url }}">
-{% endblock %}
-
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">

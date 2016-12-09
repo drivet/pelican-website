@@ -9,19 +9,29 @@
 	            {% if SITESUBTITLE %}
 	            <h2>{{ SITESUBTITLE }}</h2>
 	            {% endif %}
-                <div class="blognavlinks">
-                    {% if ARCHIVES_SAVE_AS %}
-                    <a class="index-link" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
-                       Archives</a>
-                    {% endif %} 
-                    {% if TAGS_SAVE_AS %}
-                    <a class="index-link" href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"> 
-                       Tags</a>
-                    {% endif %} 
+                <div class="rsslinks">
+                    {% if FEED_ALL_RSS %}
+                    <a class="index-link" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
+                     <span class="fa fa-rss-square"></span>RSS</a>
+                    {% endif %}
+                    {% if FEED_ALL_ATOM %}
+                    <a class="index-link" href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}"> 
+                       <span class="fa fa-rss-square"></span>Atom</a>
+                    {% endif %}
+                </div>
+                <div class="blognavlinks"> 
                     {% if CATEGORIES_SAVE_AS %}
                     <a class="index-link" href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}"> 
-                       Categories</a>
-                    {% endif %}
+                       <span class="fa fa-folder"></span>Categories</a>
+                    {% endif %}  
+                    {% if TAGS_SAVE_AS %}
+                    <a class="index-link" href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"> 
+                        <span class="fa fa-tag fa-flip-horizontal"></span>Tags</a>
+                    {% endif %} 
+                    {% if ARCHIVES_SAVE_AS %}
+                    <a class="index-link" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
+                        <span class="fa fa-archive"></span>Archives</a>
+                    {% endif %} 
                 </div>
             </header>
         </div>
