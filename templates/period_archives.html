@@ -1,15 +1,14 @@
-{% extends "blog.html" %}
-
+{% extends "article_list.html" %}
+{% set articles = dates %}
+{% block title %}Archives for {{ period | reverse | join(' ') }} - {{ SITENAME }}{% endblock %}
 {% block meta %}
 <meta name="robots" content="noindex,follow" />
 {% endblock %}
 
-{% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
-<dl>
-{% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
+{% block article_list_title %}
+<header class="article-list-header">
+    <div>
+        Archives for {{ period | reverse | join(' ') }}
+    </div>
+</header>
 {% endblock %}

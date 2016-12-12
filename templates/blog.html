@@ -4,22 +4,8 @@
 <div class="banner">
     <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
         <div class="row">
-            <header class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-	            <h1>{{ SITENAME }}</h1>
-	            {% if SITESUBTITLE %}
-	            <h2>{{ SITESUBTITLE }}</h2>
-	            {% endif %}
-                <div class="rsslinks">
-                    {% if FEED_ALL_RSS %}
-                    <a class="index-link" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
-                     <span class="fa fa-rss-square"></span>RSS</a>
-                    {% endif %}
-                    {% if FEED_ALL_ATOM %}
-                    <a class="index-link" href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}"> 
-                       <span class="fa fa-rss-square"></span>Atom</a>
-                    {% endif %}
-                </div>
-                <div class="blognavlinks"> 
+            <header class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8"> 
+               <div class="blognavlinks"> 
                     {% if CATEGORIES_SAVE_AS %}
                     <a class="index-link" href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}"> 
                        <span class="fa fa-folder"></span>Categories</a>
@@ -31,8 +17,16 @@
                     {% if ARCHIVES_SAVE_AS %}
                     <a class="index-link" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
                         <span class="fa fa-archive"></span>Archives</a>
-                    {% endif %} 
+                    {% endif %}  
+                    {% if FEED_ALL_RSS %}
+                    <a class="index-link" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
+                     <span class="fa fa-rss-square"></span>Subscribe</a>
+                    {% endif %}
                 </div>
+	            <h1>{{ SITENAME }}</h1>
+	            {% if SITESUBTITLE %}
+	            <div class="subtitle">{{ SITESUBTITLE }}</div>
+	            {% endif %}
             </header>
         </div>
     </div>
