@@ -1,1 +1,6 @@
-{% if DISQUS_SITENAME and DISQUS_DISPLAY_COUNTS %}<p><small><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" {% if not DISQUS_NO_ID %}data-disqus-identifier="{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}"{% endif %}>View comments</a>.</small></p>{% endif %}
+<script  data-isso="{{ ISSO_SERVER }}" src="{{ ISSO_SERVER }}/js/count.min.js"></script>
+{% if ISSO_SERVER and ISSO_DISPLAY_COUNTS %}
+<p><small>
+<a href="/{{ article.url }}#isso-thread">View comments</a>
+</small></p>
+{% endif %}

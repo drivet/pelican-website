@@ -33,7 +33,7 @@
         {% endfor %}
         {% if article.author %}
             <meta property="article:author" content="{{ article.author }}" />
-        {% elif AUTHOR %}
+        {% elif AUTHOR_OG %}
             <meta property="article:author" content="{{ AUTHOR }}" />
         {% endif %}
         {% if article.og_image %}
