@@ -70,9 +70,11 @@
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+
     {% if 'tipue_search' in PLUGINS %}
-    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR -}}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
+
     {% if DOCUTIL_CSS %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
     {% endif %}
@@ -149,10 +151,19 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             {% if 'tipue_search' in PLUGINS %}
-              <li><span>
-                <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
-                </form></span>
+              <li>
+                <form class="navbar-form navbar-search" role="search"
+                      action="{{ SEARCH_URL | default('/search.html') }}">
+                  <div class="input-group">
+                      <input type="search" class="search-query form-control" 
+                          placeholder="Search" name="q" id="tipue_search_input" required>
+                      <div class="input-group-btn">
+                          <button class="btn btn-default" type="submit">
+                              <span class="fa fa-search"></span>
+                          </button>
+                      </div>
+                  </div>
+                </form>
               </li>
             {% endif %}
             {% if SOCIAL %}

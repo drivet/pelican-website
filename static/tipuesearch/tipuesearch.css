@@ -6,7 +6,7 @@ Tipue Search is released under the MIT License
 http://www.tipue.com/search
 */
 
-
+/*
 #tipue_search_input
 {
      font: 13px/1.6 'open sans', sans-serif;
@@ -22,6 +22,7 @@ http://www.tipue.com/search
 	margin: 0;
 	background: #fff url('img/search.png') no-repeat 15px 15px;
 }
+*/
 
 #tipue_search_content
 {
@@ -35,11 +36,13 @@ http://www.tipue.com/search
 	color: #555;
 	margin: 7px 0;
 }
+/*
 #tipue_search_warning a
 {
      color: #396;
      text-decoration: none;
 }
+*/
 #tipue_search_warning a:hover
 {
      color: #555;  
@@ -69,11 +72,13 @@ http://www.tipue.com/search
      word-wrap: break-word;
      hyphens: auto;
 }
+/*
 .tipue_search_content_url a
 {
      color: #396;
      text-decoration: none;
 }
+*/
 .tipue_search_content_url a:hover
 {
      color: #555;   
