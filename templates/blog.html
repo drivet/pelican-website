@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}{{BLOGNAME}} - {{ SITENAME }}{% endblock%}
 
 {% block banner %}
 <div class="banner">
@@ -23,9 +24,9 @@
                      <span class="fa fa-rss-square"></span>Subscribe</a>
                     {% endif %}
                 </div>
-	            <h1>{{ SITENAME }}</h1>
-	            {% if SITESUBTITLE %}
-	            <div class="subtitle">{{ SITESUBTITLE }}</div>
+	            <h1>{{ BLOGNAME }}</h1>
+	            {% if BLOGSUBTITLE %}
+	            <div class="subtitle">{{ BLOGSUBTITLE }}</div>
 	            {% endif %}
             </header>
         </div>

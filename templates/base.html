@@ -46,11 +46,11 @@
         {% if OPEN_GRAPH_FB_APP_ID %}
             <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
         {% endif %}
-        <meta property="og:site_name" content="{{ PARENT_SITENAME }}" />
+        <meta property="og:site_name" content="{{ SITENAME }}" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="{{ PARENT_SITENAME }}"/>
+        <meta property="og:title" content="{{ SITENAME }}"/>
         <meta property="og:url" content="{{ SITEURL }}"/>
-        <meta property="og:description" content="{{ PARENT_SITENAME }}"/>
+        <meta property="og:description" content="{{ SITENAME }}"/>
         {% if OPEN_GRAPH_IMAGE %}
             <meta property="og:image"
                   content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
@@ -66,9 +66,10 @@
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
     {% else %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
-    {% endif %}
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
-
+        {% endif %}
+        
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/fontawesome-all.min.css" rel="stylesheet">
+    
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
 
     {% if 'tipue_search' in PLUGINS %}
@@ -122,7 +123,7 @@
     artifacts don't belong here either - the blog is just one part of a
     larger site.
 
-    Uses the PARENTSITENAME and honours the MENUITEMS config.
+    Uses the SITENAME and honours the MENUITEMS config.
 -->
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
@@ -135,12 +136,12 @@
                 <span class="icon-bar"></span>
             </button>
             {% endif %}
-            <a href="{{ PARENT_SITEURL }}/" class="navbar-brand">
-                {% if PARENT_SITELOGO %}
+            <a href="{{ SITEURL }}/" class="navbar-brand">
+                {% if SITELOGO %}
                   <img class="img-responsive pull-left gap-right" 
-                           src="{{ PARENT_SITEURL }}/{{ PARENT_SITELOGO }}" width="{{PARENT_SITELOGO_SIZE }}"/>
+                           src="{{ SITEURL }}/{{ SITELOGO }}" width="{{SITELOGO_SIZE }}"/>
                 {% endif %}
-                {% if not HIDE_PARENT_SITENAME %}{{ PARENT_SITENAME }}{% endif %}
+                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -173,12 +174,12 @@
                     {% else %}
                         {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
                     {% endif %}
-                    {% if name_sanitized in ['flickr', 'slideshare', 'spotify', 'stack-overflow', 'weibo', 'line-chart'] %}
-                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+                    {% if name_sanitized in ['flickr', 'slideshare', 'spotify', 'stack-overflow', 'weibo', 'line-chart', 'instagram', 'linkedin'] %}
+                        {% set iconattributes = '"fab fa-' ~ name_sanitized ~ ' fa-lg"' %}
                     {% else %}
-                        {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
+                        {% set iconattributes = '"fab fa-' ~ name_sanitized ~ '-square fa-lg"' %}
                     {% endif %}
-                <li class="social-nav"><a href="{{ s[1] }}"><i class={{ iconattributes }}></i></a></li>               
+                <li class="social-nav"><a href="{{ s[1] }}" rel="me"><i class={{ iconattributes }}></i></a></li>               
                 {% endfor %}
             {% endif %}
             </ul>
@@ -214,6 +215,7 @@
 {% include 'includes/github-js.html' %}
 {% include 'includes/disqus_script.html' %}
 {% include 'includes/ga.html' %}
+{% include 'includes/ga-new.html' %}
 {% include 'includes/piwik.html' %}
 
 {% block scripts %}{% endblock %}

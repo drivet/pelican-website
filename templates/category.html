@@ -22,7 +22,7 @@
     </div>
     <div class="category-rsslinks"> 
         {% if CATEGORY_FEED_RSS %}
-        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS % category }}">
+        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>
         {% endif %}
     </div>
