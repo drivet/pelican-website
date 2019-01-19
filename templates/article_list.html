@@ -3,14 +3,20 @@
     {% block article_list_title %}{% endblock %}
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article>
+            <article class="h-entry">
                 <header class="page-header">
                     {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
                     {% include 'includes/article_info_head.html' %}
                     {% endif %}
-                    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+                    <h1><a href="{{ SITEURL }}/{{ article.url }}"
+                           class="p-name">{{ article.title }}</a></h1>
+                    {% if article.author %}
+                    <div class="articleinfo">Posted by <a class="p-author h-card"
+                                       href="{{ SITEURL }}">{{article.author}}</a>
+                    </div>
+                    {% endif %}
                 </header>
-                <div class="summary">
+                <div class="summary p-summary">
                     {{ article.summary }}
                 </div>
                 <p><a href="{{ SITEURL }}/{{ article.url}}">Read more →</a></p> 

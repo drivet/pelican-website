@@ -69,17 +69,22 @@
 
 {% block content %}
     <section id="content">
-        <article>
+        <article class="h-entry">
             <header class="page-header"> 
                 {% include 'includes/article_info_head.html' %}
                 <h1>
-                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-                       title="Permalink to {{ article.title|striptags }}">
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" class="p-name"
+                       title="Link to {{ article.title|striptags }}">
                         {{ article.title }}
                     </a>
                 </h1>
+                {% if article.author %}
+                    <div class="articleinfo">Posted by <a class="p-author h-card"
+                                       href="{{ SITEURL }}">{{article.author}}</a>
+                    </div>
+                {% endif %}
             </header>
-            <div class="entry-content">
+            <div class="entry-content e-content">
                 {{ article.content }}
             </div> 
             <footer>
